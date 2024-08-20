@@ -1,16 +1,17 @@
 # Имеется список numbers_list
 # Сортируем и создаем обратный список
 numbers_list_ordered = sorted(numbers_list, reverse=True)
-
 # Создаем множество уникальных значений списка
 unique_numbers = set(numbers_list)
 
-# Находим максимальное значение
+# Находим максимальное значение из уникальных
 max_value = max(unique_numbers)
 
 # Создаем множество, добавляя максимальное значение + 1
 numbers_set = unique_numbers.union({max_value + 1})
+# Копируем, что бы не изменялись предидущие и последующие значения
+set_1 = unique_numbers.copy()
 
-# Удаляем минимальное значение и создаем frozenset
-numbers_set.discard(min(numbers_set))
-numbers_frozenset = frozenset(numbers_set)
+# Удаляем минимальное значение и создаем frozenset (неизменяемое множество)
+set_1.discard(min(set_1))
+numbers_frozenset = frozenset(set_1)
