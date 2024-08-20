@@ -1,0 +1,8 @@
+# Разделить список четного количества целых чисел пополам
+left = a[0:len(a) // 2]
+right = a[len(a) // 2:]
+# Найти суммы левой и правой частей
+sum_left = sum(left)
+sum_right = sum(right)
+# Если они равны вывести True
+result = sum_left == sum_right
