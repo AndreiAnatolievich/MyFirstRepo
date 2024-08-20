@@ -1,0 +1,9 @@
+# Сортируем списки
+list_1 = sorted(list_1)
+list_2 = sorted(list_2)
+list_2.reverse()
+# Обьединяем списки
+list_3 = list_1 + list_2
+list_3 = sorted(list_3)
+list_4 = list_3.copy()
+list_3_len = len(list_4)
