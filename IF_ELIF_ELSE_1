@@ -1,0 +1,23 @@
+# Получаем значения и ключи
+a = list(dict_age.values())
+b = list(dict_age.keys())
+
+# Проверяем, что у нас есть ровно три разных возраста
+if len(set(a)) == 3:
+    # Создаем список пар (возраст, имя)
+    age_name_pairs = list(zip(a, b))
+    # Сортируем по возрасту
+    age_name_pairs.sort()
+    
+    # Средний возраст будет вторым элементом после сортировки
+    middle_age_name = age_name_pairs[1][1]  # Получаем имя, соответствующее среднему возрасту
+    result = middle_age_name
+else:
+    result = ''
+# или
+ages = list(dict_age.values())
+if len(set(ages)) == 3:
+    middle_index = ages.index(sorted(ages)[1])
+    result = list(dict_age.keys())[middle_index]    
+else:
+    result = ''
