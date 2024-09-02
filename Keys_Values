@@ -1,0 +1,9 @@
+good_subjects = [subject for subject, grade in grades.items() if grade >= 4]
+
+or
+
+good_subjects = []
+subjects = list(grades.keys())
+for i, v in enumerate(grades.values()):
+    if v >= 4:
+        good_subjects.append(subjects[i])
