@@ -1,0 +1,14 @@
+Напишите программу, которая будет принимать список чисел nums и возвращать два числа, абсолютная разность которых минимальна. 
+Пару чисел сохраните в переменную result в виде списка, отсортированного по возрастанию.
+Если несколько пар дают минимальную абсолютную разность, выберете ту пару элементов, сумма которых больше.
+
+nums.sort() 
+min_diff = float('inf')  
+result = []
+for i in range(len(nums) - 1):
+    diff = abs(nums[i] - nums[i+1])  
+    if diff < min_diff:
+        min_diff = diff
+        result = [nums[i], nums[i+1]]
+    elif diff == min_diff and sum([nums[i], nums[i+1]]) > sum(result):
+        result = [nums[i], nums[i+1]]
