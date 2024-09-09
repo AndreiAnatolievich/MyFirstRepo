@@ -1,0 +1,14 @@
+n = len(m)
+result = False  # Инициализируем результат как False
+
+# Проверяем, что матрица квадратная
+if n == len(m[0]):
+    main_diagonal_sum = 0
+    secondary_diagonal_sum = 0
+
+    for i in range(n):
+        main_diagonal_sum += m[i][i]  # Сумма главной диагонали
+        secondary_diagonal_sum += m[i][n - 1 - i]  # Сумма побочной диагонали
+
+    # Сравниваем суммы
+    result = (main_diagonal_sum == secondary_diagonal_sum)
