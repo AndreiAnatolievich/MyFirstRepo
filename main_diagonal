@@ -12,3 +12,9 @@ if n == len(m[0]):
 
     # Сравниваем суммы
     result = (main_diagonal_sum == secondary_diagonal_sum)
+
+or
+
+
+result = sum([m[i][i] for i in range(len(m))]) == sum([m[i][len(m[i]) - i - 1] for i in range(len(m))])
+        
