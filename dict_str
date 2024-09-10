@@ -1,2 +1,6 @@
 result_list = [f'{key}={value}' for key, value in sorted(input_dict.items())]
 result = '&'.join(result_list)
+
+and
+
+result = ''.join([s * 2 for s in input_str])
