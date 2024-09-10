@@ -1,0 +1,2 @@
+result_list = [f'{key}={value}' for key, value in sorted(input_dict.items())]
+result = '&'.join(result_list)
