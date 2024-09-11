@@ -1,0 +1,10 @@
+decrypted_string = ''.join([secret_dict[x] if x in secret_dict else x for x in my_string])
+
+or
+
+decrypted_string = ''
+for i in my_string:
+    if secret_dict.get(i):
+        decrypted_string += secret_dict[i]
+    else:
+        decrypted_string += i
