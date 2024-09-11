@@ -1,0 +1,6 @@
+students_order = list(enumerate(sorted([name for name, score in students.items() if score > 90]), start = 1))
+
+or
+
+students_order = [name for name in sorted(students.keys()) if students[name] > 90]
+students_order = list(enumerate(students_order, 1))
