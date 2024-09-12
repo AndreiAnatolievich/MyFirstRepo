@@ -1,0 +1,34 @@
+def calculate_order_cost(products, *args):
+    total_cost = 0  # Инициализация переменной для общей стоимости
+    orders_info = {}  # Инициализация словаря для информации о заказах
+
+    # Подсчет количества каждого продукта из args
+    for item in args:
+        if item in products:  # Проверяем, есть ли товар в products
+            if item in orders_info:
+                orders_info[item] += 1  # Увеличиваем количество, если продукт уже есть в словаре
+            else:
+                orders_info[item] = 1  # Инициализируем количество для нового продукта
+
+    # Подсчет общей стоимости на основе orders_info
+    for item, quantity in orders_info.items():
+        total_cost += products[item] * quantity  # Умножаем стоимость на количество
+
+    return total_cost, orders_info  # Возвращаем кортеж с общей стоимостью и информацией о заказах
+
+or
+
+def calculate_order_cost(products, *args):
+    total_price = 0
+    orders_info = {}
+    for product in args:
+        product_price = products.get(product)
+        if not product_price:
+            continue
+        total_price += product_price
+        order_info = orders_info.get(product)
+        if order_info:
+            orders_info[product] += 1
+        else:
+            orders_info[product] = 1
+    return total_price, orders_info
