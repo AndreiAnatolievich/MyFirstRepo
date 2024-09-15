@@ -1,0 +1,45 @@
+def sorting_hat(new_students):
+    # Инициализация словарей для распределения студентов и подсчета факультетов
+    sorted_students = {}
+    departaments = {'Гриффиндор': 0, 'Пуффендуй': 0, 'Когтевран': 0, 'Слизерин': 0}
+    
+    # Качества, соответствующие каждому факультету
+    department_quality = {
+        'Гриффиндор': ('храбрость', 'благородство', 'честь'),
+        'Пуффендуй': ('трудолюбие', 'верность', 'честность'),
+        'Когтевран': ('ум', 'любознательность', 'творчество'),
+        'Слизерин': ('хитрость', 'амбициозность', 'находчивость')
+    }
+
+    # Распределение студентов по факультетам
+    for student, quality in new_students.items():
+        for faculty, required_qualities in department_quality.items():
+            if quality in required_qualities:
+                sorted_students[student] = faculty
+                departaments[faculty] += 1  # Увеличиваем счетчик для факультета
+                break  # Прекращаем проверку, если студент уже распределен
+
+    return sorted_students, departaments
+
+or
+
+def sorting_hat(new_students):
+    sorted_students = list(new_students.items())
+    sorted_students = list(map(lambda x: (x[0], 
+                                          'Гриффиндор' if x[1] in ['храбрость', 'благородство', 'честь'] else x[1]), sorted_students))
+    sorted_students = list(map(lambda x: (x[0], 
+                                          'Пуффендуй' if x[1] in ['трудолюбие', 'верность', 'честность'] else x[1]), sorted_students))
+    sorted_students = list(map(lambda x: (x[0], 
+                                          'Когтевран' if x[1] in ['ум', 'любознательность', 'творчество'] else x[1]), sorted_students))
+    sorted_students = list(map(lambda x: (x[0], 
+                                          'Слизерин' if x[1] in ['хитрость', 'амбициозность', 'находчивость'] else x[1]), sorted_students))
+    
+    sorted_students.sort(key=lambda a: (a[1], a[0]))
+    
+    departments = []
+    for d in ['Гриффиндор', 'Пуффендуй', 'Когтевран', 'Слизерин']:
+        d_students = len(list(filter(lambda x: x[1] == d, sorted_students)))
+        departments.append((d, d_students))
+    departments.sort(key=lambda a: a[0])
+    
+    return dict(sorted_students), dict(departments)
