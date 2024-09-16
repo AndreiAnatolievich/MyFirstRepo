@@ -1,0 +1,3 @@
+# Фильтруем список кортежей input_list,
+# у которых второй элемент делится на 5 в отсортированном по 2 элементу списку кортежей
+result = list(filter(lambda x: x[1] % 5 == 0, sorted(input_list, reverse=True, key=lambda x: x[1])))
