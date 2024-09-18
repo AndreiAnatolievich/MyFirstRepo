@@ -1,0 +1,15 @@
+def update_tuple(input_tuple, el_del):
+    if el_del in input_tuple:
+        elem_index = input_tuple.index(el_del)
+        return input_tuple[:elem_index] + input_tuple[elem_index + 1:]
+    return input_tuple
+
+or
+
+def update_tuple(input_tuple, el_del):
+    temp_list = list(input_tuple)
+    if el_del in temp_list:
+        temp_list.remove(el_del)
+    else:
+        temp_list.copy()
+    return tuple(temp_list)
