@@ -1,0 +1,18 @@
+def reverse_tuple(tup):
+    # Переворачиваем элементы
+    reversed_tup = reversed(tup)
+    # Удаляем дубликаты, сохраняя порядок
+    seen = set()
+    unique_items = []
+    for item in reversed_tup:
+        if item not in seen:
+            seen.add(item)
+            unique_items.append(item)
+    return tuple(unique_items)
+
+or
+
+def reverse_tuple(lst):
+    uniq_elems = []
+    [uniq_elems.append(i) for i in reversed(lst) if i not in uniq_elems]
+    return tuple(uniq_elems)
